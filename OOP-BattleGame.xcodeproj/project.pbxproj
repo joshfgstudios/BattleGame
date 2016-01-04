@@ -12,6 +12,10 @@
 		0361402E1C39F70800D17F76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0361402C1C39F70800D17F76 /* Main.storyboard */; };
 		036140301C39F70800D17F76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0361402F1C39F70800D17F76 /* Assets.xcassets */; };
 		036140331C39F70800D17F76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036140311C39F70800D17F76 /* LaunchScreen.storyboard */; };
+		0361403B1C39FE4300D17F76 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0361403A1C39FE4300D17F76 /* Character.swift */; };
+		0361403F1C3A32AF00D17F76 /* death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0361403C1C3A32AF00D17F76 /* death.wav */; };
+		036140401C3A32AF00D17F76 /* sword_slash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0361403D1C3A32AF00D17F76 /* sword_slash.wav */; };
+		036140411C3A32AF00D17F76 /* bg_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0361403E1C3A32AF00D17F76 /* bg_music.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		0361402F1C39F70800D17F76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		036140321C39F70800D17F76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		036140341C39F70800D17F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0361403A1C39FE4300D17F76 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		0361403C1C3A32AF00D17F76 /* death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = death.wav; sourceTree = "<group>"; };
+		0361403D1C3A32AF00D17F76 /* sword_slash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword_slash.wav; sourceTree = "<group>"; };
+		0361403E1C3A32AF00D17F76 /* bg_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_music.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +62,16 @@
 		036140271C39F70800D17F76 /* OOP-BattleGame */ = {
 			isa = PBXGroup;
 			children = (
+				0361403C1C3A32AF00D17F76 /* death.wav */,
+				0361403D1C3A32AF00D17F76 /* sword_slash.wav */,
+				0361403E1C3A32AF00D17F76 /* bg_music.mp3 */,
 				036140281C39F70800D17F76 /* AppDelegate.swift */,
 				0361402A1C39F70800D17F76 /* ViewController.swift */,
 				0361402C1C39F70800D17F76 /* Main.storyboard */,
 				0361402F1C39F70800D17F76 /* Assets.xcassets */,
 				036140311C39F70800D17F76 /* LaunchScreen.storyboard */,
 				036140341C39F70800D17F76 /* Info.plist */,
+				0361403A1C39FE4300D17F76 /* Character.swift */,
 			);
 			path = "OOP-BattleGame";
 			sourceTree = "<group>";
@@ -123,8 +135,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				036140331C39F70800D17F76 /* LaunchScreen.storyboard in Resources */,
+				036140411C3A32AF00D17F76 /* bg_music.mp3 in Resources */,
 				036140301C39F70800D17F76 /* Assets.xcassets in Resources */,
+				036140401C3A32AF00D17F76 /* sword_slash.wav in Resources */,
 				0361402E1C39F70800D17F76 /* Main.storyboard in Resources */,
+				0361403F1C3A32AF00D17F76 /* death.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0361403B1C39FE4300D17F76 /* Character.swift in Sources */,
 				0361402B1C39F70800D17F76 /* ViewController.swift in Sources */,
 				036140291C39F70800D17F76 /* AppDelegate.swift in Sources */,
 			);
@@ -247,10 +263,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "OOP-BattleGame/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foxgallerystudios.OOP-BattleGame";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -258,10 +277,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "OOP-BattleGame/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foxgallerystudios.OOP-BattleGame";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
