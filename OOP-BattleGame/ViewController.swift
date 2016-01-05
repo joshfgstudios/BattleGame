@@ -20,6 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblPlayer1HP: UILabel!
     @IBOutlet weak var lblPlayer2HP: UILabel!
     @IBOutlet weak var btnReset: UIButton!
+    @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var btnKnight1: UIButton!
+    @IBOutlet weak var btnOrc1: UIButton!
+    @IBOutlet weak var btnKnight2: UIButton!
+    @IBOutlet weak var btnOrc2: UIButton!
     
     //Variables
     var player1: Character!
@@ -29,6 +34,9 @@ class ViewController: UIViewController {
     var audAttack: AVAudioPlayer!
     var audDie:  AVAudioPlayer!
     
+    
+    //View Load
+    //--------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,11 +70,45 @@ class ViewController: UIViewController {
         }
         
         //Initialise players
-        player1 = Character(startingHP: 100, attackPower: 15, name: "OrcMan")
-        player2 = Character(startingHP: 100, attackPower: 15, name: "KnightMan")
+        player1 = Character(startingHP: 100, attackPower: 15, name: "Player1")
+        player2 = Character(startingHP: 100, attackPower: 15, name: "Player2")
         
         bgMusic.play()
     }
+    
+    //Actions
+    //---------------------------------
+    @IBAction func onPlayPressed(sender: AnyObject) {
+        lblOutput.text = "Press buttons to attack!"
+        imgPlayer1.hidden = false
+        imgPlayer2.hidden = false
+        btnAttack1.hidden = false
+        btnAttack2.hidden = false
+        lblPlayer1HP.hidden = false
+        lblPlayer2HP.hidden = false
+        btnPlay.hidden = true
+        btnKnight1.hidden = true
+        btnOrc1.hidden = true
+        btnKnight2.hidden = true
+        btnOrc2.hidden = true
+    }
+    
+    @IBAction func onKnight1Pressed(sender: AnyObject) {
+        imgPlayer1.image = UIImage(named: "playerL")
+    }
+    
+    @IBAction func onOrc1Pressed(sender: AnyObject) {
+        imgPlayer1.image = UIImage(named: "enemy")
+    }
+    
+    @IBAction func onKnight2Pressed(sender: AnyObject) {
+        imgPlayer2.image = UIImage(named: "player")
+    }
+    
+    @IBAction func onOrc2Pressed(sender: AnyObject) {
+        imgPlayer2.image = UIImage(named: "enemyR")
+    }
+    
     
     @IBAction func onAttack2Pressed(sender: AnyObject) {
         player1.attemptAttack(player2.attackPower)
@@ -119,6 +161,8 @@ class ViewController: UIViewController {
         lblOutput.text = "Press buttons to attack!"
     }
     
+    //Functions
+    //---------------------------------
     func gameOver() {
         btnReset.hidden = false
         btnAttack1.hidden = true
