@@ -81,20 +81,16 @@ class ViewController: UIViewController {
             gameOver()
             return
         }
-        
-        if !player1.isAlive() {
-            return
-        } else {
-            playAttackSound()
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "canAttack2", userInfo: nil, repeats: false)
-        }
+
+        playAttackSound()
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "canAttack2", userInfo: nil, repeats: false)
     }
     
     @IBAction func onAttack1Pressed(sender: AnyObject) {
-            player2.attemptAttack(player1.attackPower)
-            lblOutput.text = "\(player1.name) attacked \(player2.name) for \(player1.attackPower) HP!"
-            lblPlayer2HP.text = "\(player2.hp)"
-            btnAttack1.hidden = true
+        player2.attemptAttack(player1.attackPower)
+        lblOutput.text = "\(player1.name) attacked \(player2.name) for \(player1.attackPower) HP!"
+        lblPlayer2HP.text = "\(player2.hp)"
+        btnAttack1.hidden = true
         
         if !player2.isAlive() {
             audDie.play()
@@ -104,12 +100,8 @@ class ViewController: UIViewController {
             return
         }
         
-        if !player2.isAlive() {
-            return
-        } else {
-            playAttackSound()
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "canAttack1", userInfo: nil, repeats: false)
-        }
+        playAttackSound()
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "canAttack1", userInfo: nil, repeats: false)
     }
     
     @IBAction func onResetPressed(sender: AnyObject) {
@@ -136,11 +128,19 @@ class ViewController: UIViewController {
     }
     
     func canAttack1() {
-        btnAttack1.hidden = false
+        if !player2.isAlive() || !player1.isAlive() {
+            btnAttack1.hidden = true
+        } else {
+            btnAttack1.hidden = false
+        }
     }
     
     func canAttack2() {
-        btnAttack2.hidden = false
+        if !player1.isAlive() || !player2.isAlive() {
+            btnAttack2.hidden = true
+        } else {
+            btnAttack2.hidden = false
+        }
     }
     
     func playAttackSound() {
